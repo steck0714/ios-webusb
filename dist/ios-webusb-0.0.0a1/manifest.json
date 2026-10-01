@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "0.0.0.1",
+  "version_name": "0.0.0a1",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "ja",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://localhost/*", "http://127.0.0.1/*"],
+      "all_frames": true,
+      "run_at": "document_start",
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["page.js"],
+      "matches": ["https://*/*", "http://localhost/*", "http://127.0.0.1/*"]
+    }
+  ],
+  "action": { "default_title": "__MSG_extensionName__" },
+  "options_ui": { "page": "options.html", "open_in_tab": true }
+}
