@@ -1,6 +1,6 @@
 # ios-webusb
 
-**状態: WIP (0.0.0a1)** — iOSのブラウザに `navigator.usb` (WebUSB) を足すポリフィルです。
+**状態: WIP (0.0.0)** — iOSのブラウザに `navigator.usb` (WebUSB) を足すポリフィルです。
 
 iOSのブラウザはWebUSBに対応しておらず、ページや拡張機能から生のUSBにも触れません。そこで、USBデバイスをつないだ**別のコンピューター上の「ブリッジ」をWebSocketで呼び出す**構成にしています。ページ側からは普通の `navigator.usb` に見えます。
 
