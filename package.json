@@ -1,0 +1,33 @@
+{
+  "name": "ios-webusb",
+  "version": "0.0.0-a.1",
+  "description": "navigator.usb (WebUSB) polyfill for iOS browsers: Chrome-extension (crx) build and Shortcuts (Run JavaScript on Web Page) build",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.types.json && tsc -p tsconfig.conformance-own.json && tsc -p tsconfig.conformance-w3c.json",
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test \"tests/**/*.test.ts\"",
+    "check": "npm run typecheck && npm test",
+    "pack:crx": "node scripts/build.mjs && node scripts/pack-crx.mjs",
+    "preview": "node scripts/preview-chooser.mjs",
+    "setup:py": "python3 -m venv .venv && .venv/bin/pip install -r bridge/requirements.txt",
+    "bridge": ".venv/bin/python bridge/mock_bridge.py"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^153.0.0",
+    "@types/chrome": "^0.3.4",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^26.6.3",
+    "@types/w3c-web-usb": "^1.0.14",
+    "crx3": "^2.0.0",
+    "esbuild": "^0.28.2",
+    "jsdom": "^30.1.1",
+    "puppeteer-core": "^25.12.0",
+    "typescript": "^7.0.2"
+  }
+}

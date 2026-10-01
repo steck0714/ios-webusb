@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "types": ["w3c-web-usb"] },
+  "include": ["tests/conformance/spec-alias.d.ts", "tests/conformance/check.ts"],
+  "exclude": []
+}

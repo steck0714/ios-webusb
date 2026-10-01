@@ -1,0 +1,4 @@
+{
+  "extensionName": { "message": "ios-webusb", "description": "Extension name" },
+  "extensionDescription": { "message": "Adds navigator.usb (WebUSB) to iOS browsers. USB is reached through a bridge on another computer (work in progress).", "description": "Extension description" }
+}

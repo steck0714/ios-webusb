@@ -1,0 +1,4 @@
+{
+  "extensionName": { "message": "ios-webusb", "description": "拡張機能名" },
+  "extensionDescription": { "message": "iOSのブラウザでnavigator.usb(WebUSB)を使えるようにします。USBは別のコンピューター上のブリッジ経由です(開発中)", "description": "拡張機能の説明" }
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "types": [], "skipLibCheck": false },
+  "include": ["types/webusb-polyfill.d.ts", "tests/conformance/spec-alias.d.ts", "tests/conformance/check.ts"],
+  "exclude": []
+}

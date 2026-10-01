@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ios-webusb</title>
+<style>
+  :root { color-scheme: light dark; --bg:#f6f6f8; --card:#fff; --fg:#1c1c1e; --muted:#62626a; --line:#d9d9de; --accent:#0b5cd5; --accent-fg:#fff; --ok:#1d7a3a; --ng:#b3261e; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1b1b1e; --card:#2b2b2f; --fg:#f3f3f5; --muted:#a8a8b0; --line:#46464d; --accent:#6ea8ff; --accent-fg:#0a1a33; --ok:#63d283; --ng:#ff8a80; } }
+  * { box-sizing: border-box; }
+  body { margin:0; padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+         background: var(--bg); color: var(--fg); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", system-ui, sans-serif; }
+  main { max-width: 34rem; margin: 0 auto; }
+  h1 { font-size: 1.35rem; margin: 0 0 .25rem; }
+  .lead { margin: 0 0 1.25rem; color: var(--muted); }
+  form { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem; display: grid; gap: 1rem; }
+  label { display: grid; gap: .3rem; font-weight: 600; }
+  label small { font-weight: 400; color: var(--muted); }
+  input { font: inherit; padding: .65rem .75rem; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: inherit; width: 100%; }
+  .row { display: flex; gap: .6rem; flex-wrap: wrap; }
+  button { font: inherit; font-weight: 600; min-height: 44px; padding: 0 1.1rem; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: inherit; cursor: pointer; }
+  button.primary { background: var(--accent); color: var(--accent-fg); border-color: transparent; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  #status { min-height: 1.5em; margin: 0; }
+  #status[data-kind="ok"] { color: var(--ok); } #status[data-kind="ng"] { color: var(--ng); }
+  #warn { margin: 0; color: var(--muted); font-size: .9rem; min-height: 1.3em; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ios-webusb</h1>
+  <p class="lead">USBデバイスをつないだコンピューター上の「ブリッジ」のアドレスを入力します。 / Address of the bridge on the computer that holds the USB device.</p>
+  <form id="form">
+    <label>ブリッジのURL / Bridge URL
+      <input id="bridgeUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="wss://192.168.0.10:8765/" required>
+    </label>
+    <p id="warn" role="note"></p>
+    <label>トークン / Token <small>(ブリッジに設定した場合 / if the bridge requires one)</small>
+      <input id="token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </label>
+    <div class="row">
+      <button class="primary" type="submit">保存 / Save</button>
+      <button id="test" type="button">接続テスト / Test</button>
+    </div>
+    <p id="status" role="status" aria-live="polite"></p>
+  </form>
+</main>
+<script src="options.js"></script>
+</body>
+</html>
